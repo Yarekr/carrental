@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.text.MessageFormat;
 import java.util.List;
+import java.util.Random;
 
 @Repository
 public class CarRepository {
@@ -19,19 +21,32 @@ public class CarRepository {
         return jdbcTemplate.query(SqlQueries.SELECT_ALL_CARS, new CarRowMapper());
     }
 
-    public Car findCarById(long id) {
-
-        return (Car) jdbcTemplate.query("Select * from Car Where id ='?'", new CarRowMapper());
+    public Car findCarById(Long id) {
+        String query = SqlQueries.FIND_CAR_BY_ID + wrapInQuotations(id.toString());
+        List<Car> result = jdbcTemplate.query(query, new CarRowMapper());
+        // find by id always return list of 1 element
+        return result.iterator().next();
     }
 
     public void createACar(Car car) {
-        jdbcTemplate.update(
-                "INSERT INTO car (carName, carMilage) VALUES (?, ?)",
-                car.getCarName(), car.getCarMilage()
-        );
+        MessageFormat queryFormat = new MessageFormat(SqlQueries.CREATE_A_CAR);
+        String query = queryFormat.format(new Object[]{
+                // 0 - id:
+                new Random().nextInt(10) + 10,
+                // 1 - name
+                wrapInQuotations(car.getCarName()),
+                // 2 - status
+                wrapInQuotations(car.getCarStatus().toString()),
+                // 3 - rented
+                car.isCarRented() ? 1 : 0,
+                // 4 - milage
+                car.getCarMilage()
+        });
+
+        jdbcTemplate.update(query);
     }
 
-    public List<Car> getAvarageMilage(){
-        return jdbcTemplate.query(SqlQueries.AVG_MILAGE, new CarRowMapper());
+    private String wrapInQuotations(String source) {
+        return SqlQueries.QUOTATION + source + SqlQueries.QUOTATION;
     }
 }

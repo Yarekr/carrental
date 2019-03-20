@@ -13,7 +13,3 @@ create table users (
     rentalPrivilege varchar(30) not null,
     primary key(id)
 );
-
-
---TODO:
---- zdefiniowac tabele User

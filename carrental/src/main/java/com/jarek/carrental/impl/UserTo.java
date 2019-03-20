@@ -3,8 +3,8 @@ package com.jarek.carrental.impl;
 import com.jarek.carrental.api.Car;
 import com.jarek.carrental.api.User;
 import com.jarek.carrental.enums.RentalPrivilege;
-import org.testng.collections.Lists;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,14 +23,16 @@ public class UserTo implements User {
     /**
      * The Cars.
      */
-    List<Car> cars = Lists.newArrayList();
+    List<Car> cars = new ArrayList<>();
 
     public UserTo(String username) {
-       this.username = username;
+        this.username = username;
 
     }
 
+    public UserTo(){
 
+    }
 
     @Override
     public String getUsername() {

@@ -9,7 +9,6 @@ import com.jarek.carrental.impl.ManageCarUcImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.testng.collections.Lists;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -26,7 +25,7 @@ public class LoopStreamTests {
             System.err.println(i);
             Car car = cars.get(i);
             System.err.println(car);
-            System.err.println(systemUnderTest.getAvarageMilage(Lists.newArrayList(car)));
+            System.err.println(systemUnderTest.getAvarageMilage(Arrays.asList(car)));
         }
     }
 
@@ -34,7 +33,7 @@ public class LoopStreamTests {
     public void testForEachLoop() {
         for (Car car : cars) {
             System.err.println(car);
-            System.err.println(systemUnderTest.getAvarageMilage(Lists.newArrayList(car)));
+            System.err.println(systemUnderTest.getAvarageMilage(Arrays.asList(car)));
         }
     }
 
@@ -44,7 +43,7 @@ public class LoopStreamTests {
         while (i < cars.size()) {
             Car car = cars.get(i);
             System.err.println(car);
-            System.err.println(systemUnderTest.getAvarageMilage(Lists.newArrayList(car)));
+            System.err.println(systemUnderTest.getAvarageMilage(Arrays.asList(car)));
             i++;
         }
 
@@ -56,7 +55,7 @@ public class LoopStreamTests {
         do {
             Car car = cars.get(i);
             System.err.println(car);
-            System.err.println(systemUnderTest.getAvarageMilage(Lists.newArrayList(car)));
+            System.err.println(systemUnderTest.getAvarageMilage(Arrays.asList(car)));
             i++;
         } while (i < cars.size());
     }
@@ -67,7 +66,7 @@ public class LoopStreamTests {
         while (iter.hasNext()) {
             Car car = (Car) iter.next();
             System.err.println(car);
-            System.err.println(systemUnderTest.getAvarageMilage(Lists.newArrayList(car)));
+            System.err.println(systemUnderTest.getAvarageMilage(Arrays.asList(car)));
         }
     }
 
@@ -110,7 +109,7 @@ public class LoopStreamTests {
 
     private void printCar(Car car) {
         System.err.println(car);
-        System.err.println(systemUnderTest.getAvarageMilage(Lists.newArrayList(car)));
+        System.err.println(systemUnderTest.getAvarageMilage(Arrays.asList(car)));
     }
 
     @Test
@@ -118,35 +117,11 @@ public class LoopStreamTests {
         cars.sort(new Comparator<Car>() {
             @Override
             public int compare(Car o1, Car o2) {
-//                return (int) (o1.getCarMilage() - o2.getCarMilage());
                 return Double.compare(o1.getCarMilage(), o2.getCarMilage());
             }
         });
         cars.sort((Car o1, Car o2) -> (int) (o1.getCarMilage() - o2.getCarMilage()));
         cars.forEach((car -> printCar(car)));
-    }
-
-    @Test
-    public void testOptionalOfNullable() {
-        List<Car> carList = Lists.newArrayList();
-        Car dacia = new CarTo("Dacia", 10000);
-        dacia.setCarStatus(CarStatus.OK);
-        Car lada = new CarTo("Lada", 10000);
-        lada.setCarStatus(CarStatus.OK);
-        Car astra = new CarTo("Astra");
-        astra.setCarStatus(null);
-        carList.add(dacia);
-        carList.add(null);
-        carList.add(lada);
-        carList.add(astra);
-
-        boolean anyElementNonNull = carList.stream().anyMatch(e -> e != null);
-        boolean allElementNonNull = carList.stream().allMatch(e -> e != null);
-
-        Optional<Car> firstNullElement = carList.stream().filter(e -> e == null).findFirst();
-        if (firstNullElement.isPresent()) {
-
-        }
     }
 
 }

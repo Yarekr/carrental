@@ -14,8 +14,9 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.testng.collections.Lists;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -48,7 +49,7 @@ public class ManageCarUcTest {
     public void testUserUnableToRentAnything() {
         // given:
         List<Car> cars = CarDatabase.prepareCars();
-        User user = prepareUser(Lists.newArrayList());
+        User user = prepareUser(new ArrayList<>());
         String carName = "Volvo";
         //when
         Pair<User, Car> result = systemUnderTest.rentCarByUser(cars, user, carName);
@@ -62,7 +63,7 @@ public class ManageCarUcTest {
     public void testIsAbleToRentCarButCarNotExists() {
         // given:
         List<Car> cars = CarDatabase.prepareCars();
-        User user = prepareUser(Lists.newArrayList(RentalPrivilege.BOOK_CAR));
+        User user = prepareUser(Arrays.asList(RentalPrivilege.BOOK_CAR));
         String carName = "Astra";
         //when
         Pair<User, Car> result = systemUnderTest.rentCarByUser(cars, user, carName);
@@ -75,7 +76,7 @@ public class ManageCarUcTest {
     public void testCarExistsButInWrongCondition() {
         // given:
         List<Car> cars = CarDatabase.prepareCars();
-        User user = prepareUser(Lists.newArrayList());
+        User user = prepareUser(new ArrayList<>());
         String carName = "Lada";
         //when
         Pair<User, Car> result = systemUnderTest.rentCarByUser(cars, user, carName);
@@ -88,7 +89,7 @@ public class ManageCarUcTest {
     public void testCarExistsInGoodConditionButAlreadyRented() {
         // given:
         List<Car> cars = CarDatabase.prepareCars();
-        User user = prepareUser(Lists.newArrayList());
+        User user = prepareUser(new ArrayList<>());
         String carName = "Renault";
         //when
         Pair<User, Car> result = systemUnderTest.rentCarByUser(cars, user, carName);
@@ -101,7 +102,7 @@ public class ManageCarUcTest {
     public void testRentACarHappyPath() {
         // given:
         List<Car> cars = CarDatabase.prepareCars();
-        User user = prepareUser(Lists.newArrayList(RentalPrivilege.BOOK_CAR));
+        User user = prepareUser(Arrays.asList(RentalPrivilege.BOOK_CAR));
         String carName = "Volvo";
         //when
         Pair<User, Car> result = systemUnderTest.rentCarByUser(cars, user, carName);
@@ -119,7 +120,7 @@ public class ManageCarUcTest {
     private User prepareUser(List<RentalPrivilege> privileges) {
         return UserToBuilder.anUserTo()
                 .withUsername("Jarek")
-                .withPrivileges(Lists.newArrayList(privileges))
+                .withPrivileges(privileges)
                 .build();
     }
 }

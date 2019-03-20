@@ -4,9 +4,9 @@ import com.jarek.carrental.api.User;
 import com.jarek.carrental.enums.RentalPrivilege;
 import com.jarek.carrental.enums.UserType;
 import com.jarek.carrental.impl.builders.UserToBuilder;
-import org.testng.collections.Lists;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,12 +20,12 @@ public class UserFactory implements Serializable {
     static {
         User adminUser = UserToBuilder.anUserTo()
                 .withUsername("admin")
-                .withPrivileges(Lists.newArrayList(RentalPrivilege.DIAGNOSE))
+                .withPrivileges(Arrays.asList(RentalPrivilege.DIAGNOSE))
                 .build();
 
         User customerUser = UserToBuilder.anUserTo()
                 .withUsername("Tomasz")
-                .withPrivileges(Lists.newArrayList(RentalPrivilege.BOOK_CAR))
+                .withPrivileges(Arrays.asList(RentalPrivilege.BOOK_CAR))
                 .build();
 
         sUserMap.put(UserType.ADMIN, adminUser);

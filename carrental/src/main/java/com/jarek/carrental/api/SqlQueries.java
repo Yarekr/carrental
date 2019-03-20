@@ -5,10 +5,14 @@ package com.jarek.carrental.api;
  */
 public interface SqlQueries {
 
+    String QUOTATION = "'";
+
     String SELECT_ALL_CARS = "SELECT * FROM Car";
 
-    String FIND_CAR_BY_ID = "SELECT * FROM Car WHERE id ='1'";
+    String SELECT_ALL_USERS = "SELECT * FROM Users";
 
-    String AVG_MILAGE = "SELECT AVG(carMilage) FROM Car";
+    String FIND_CAR_BY_ID = "Select * from Car Where id = ";
+
+    String CREATE_A_CAR = "insert into car values({0},{1}, {2}, {3}, {4})";
 
 }
