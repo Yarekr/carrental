@@ -1,0 +1,12 @@
+ public Pair<User, Car> rentCarByUser(List<Car> cars, User user, String carName) {
+//        todo: implement me
+//        todo: think about return type = without that impossible to test results
+//        - zaimplementuj metody prywatne:
+//            - czy moge wypozyczyc auto (sprawdz uprawnienia)
+//            - czy auto istnieje
+//            - czy jest sprawne i dostepne do wypozyczenia
+//            - zmien statusy samochod
+//            - zmien stan usera
+
+        return new Pair<>(null, null);
+    }
