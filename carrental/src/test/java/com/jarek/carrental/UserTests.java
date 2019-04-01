@@ -36,9 +36,9 @@ public class UserTests {
     @Test
     public void testIfNotExistingUserIsFine() {
         //given:
-        UserFactory userFacory = new UserFactory();
+        UserFactory userFactory = new UserFactory();
         //when:
-        User result = userFacory.getUserByType(UserType.SECRET_CUSTOMER);
+        User result = userFactory.getUserByType(UserType.SECRET_CUSTOMER);
         //then:
         Assert.assertNull(result);
     }
