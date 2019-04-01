@@ -13,12 +13,20 @@ import java.text.MessageFormat;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * The type User repository.
+ */
 @Repository
 public class UserRepository {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    /**
+     * Find all users list.
+     *
+     * @return the list
+     */
     public List<User> findAllUsers() {
         return jdbcTemplate.query(SqlQueries.SELECT_ALL_USERS, new UserRowMapper());
     }

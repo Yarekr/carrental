@@ -25,11 +25,19 @@ public class UserTo implements User {
      */
     List<Car> cars = new ArrayList<>();
 
+    /**
+     * Instantiates a new User to.
+     *
+     * @param username the username
+     */
     public UserTo(String username) {
         this.username = username;
 
     }
 
+    /**
+     * Instantiates a new User to.
+     */
     public UserTo(){
 
     }

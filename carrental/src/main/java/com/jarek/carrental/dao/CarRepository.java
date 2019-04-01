@@ -11,16 +11,30 @@ import java.text.MessageFormat;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * The type Car repository.
+ */
 @Repository
 public class CarRepository {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    /**
+     * Find all cars list.
+     *
+     * @return the list
+     */
     public List<Car> findAllCars() {
         return jdbcTemplate.query(SqlQueries.SELECT_ALL_CARS, new CarRowMapper());
     }
 
+    /**
+     * Find car by id car.
+     *
+     * @param id the id
+     * @return the car
+     */
     public Car findCarById(Long id) {
         String query = SqlQueries.FIND_CAR_BY_ID + wrapInQuotations(id.toString());
         List<Car> result = jdbcTemplate.query(query, new CarRowMapper());
@@ -28,6 +42,11 @@ public class CarRepository {
         return result.iterator().next();
     }
 
+    /**
+     * Create a car.
+     *
+     * @param car the car
+     */
     public void createACar(Car car) {
         MessageFormat queryFormat = new MessageFormat(SqlQueries.CREATE_A_CAR);
         String query = queryFormat.format(new Object[]{

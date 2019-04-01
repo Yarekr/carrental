@@ -16,10 +16,21 @@ public class TruckTo implements Car {
     private CarStatus carStatus;
     private boolean isCarRented = false;
 
+    /**
+     * Gets weight.
+     *
+     * @return the weight
+     */
     public double getWeight() {
         return weight;
     }
 
+    /**
+     * Sets weight.
+     *
+     * @param weight the weight
+     * @return the weight
+     */
     public TruckTo setWeight(double weight) {
         this.weight = weight;
         return this;
@@ -44,6 +55,11 @@ public class TruckTo implements Car {
         this.isCarRented = isCarRented;
     }
 
+    /**
+     * Instantiates a new Truck to.
+     *
+     * @param carStatus the car status
+     */
     public TruckTo(CarStatus carStatus) {
         this.carStatus = carStatus;
     }
@@ -68,6 +84,12 @@ public class TruckTo implements Car {
         this.carMilage = carMilage;
     }
 
+    /**
+     * Instantiates a new Truck to.
+     *
+     * @param carName   the car name
+     * @param carMilage the car milage
+     */
     public TruckTo(String carName, double carMilage) {
         this.carName = carName + "Truck";
         this.carMilage = carMilage;

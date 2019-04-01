@@ -71,10 +71,23 @@ public class ManageCarUcImpl implements ManageCarUc {
         return isCarPresent;
     }
 
+    /**
+     * Car status is able to rent boolean.
+     *
+     * @param car the car
+     * @return the boolean
+     */
     public boolean carStatusIsAbleToRent(Car car) {
         return car.getCarStatus() == CarStatus.OK && !car.isCarRented();
     }
 
+    /**
+     * Gets car by name.
+     *
+     * @param listOfCars the list of cars
+     * @param carName    the car name
+     * @return the car by name
+     */
     public Car getCarByName(List<Car> listOfCars, String carName) {
         for (Car car : listOfCars) {
             if (car.getCarName().equals(carName)) {

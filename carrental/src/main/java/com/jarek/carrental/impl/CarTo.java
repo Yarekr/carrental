@@ -44,10 +44,21 @@ public class CarTo implements Car {
         this.carStatus = carStatus;
     }
 
+    /**
+     * Instantiates a new Car to.
+     *
+     * @param carName the car name
+     */
     public CarTo(String carName) {
         this.carName = carName;
     }
 
+    /**
+     * Instantiates a new Car to.
+     *
+     * @param carName   the car name
+     * @param carMilage the car milage
+     */
     public CarTo(String carName, double carMilage) {
         this.carName = carName;
         this.carMilage = carMilage;

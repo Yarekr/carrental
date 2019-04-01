@@ -8,6 +8,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * The type Carrental application.
+ */
 @SpringBootApplication
 public class CarrentalApplication implements CommandLineRunner {
 
@@ -16,6 +19,11 @@ public class CarrentalApplication implements CommandLineRunner {
     @Autowired
     private CarRepository repository;
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         SpringApplication.run(CarrentalApplication.class, args);
     }
