@@ -13,12 +13,24 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * The type Loop stream tests.
+ */
 @RunWith(SpringRunner.class)
 public class LoopStreamTests {
 
+    /**
+     * The Cars.
+     */
     List<Car> cars = CarDatabase.prepareCars();
+    /**
+     * The System under test.
+     */
     ManageCarUc systemUnderTest = new ManageCarUcImpl();
 
+    /**
+     * Test for loop.
+     */
     @Test
     public void testForLoop() {
         for (int i = 0; i < cars.size(); i++) {
@@ -29,6 +41,9 @@ public class LoopStreamTests {
         }
     }
 
+    /**
+     * Test for each loop.
+     */
     @Test
     public void testForEachLoop() {
         for (Car car : cars) {
@@ -37,6 +52,9 @@ public class LoopStreamTests {
         }
     }
 
+    /**
+     * Test while loop.
+     */
     @Test
     public void testWhileLoop() {
         int i = 0;
@@ -49,6 +67,9 @@ public class LoopStreamTests {
 
     }
 
+    /**
+     * Test do while loop.
+     */
     @Test
     public void testDoWhileLoop() {
         int i = 0;
@@ -60,6 +81,9 @@ public class LoopStreamTests {
         } while (i < cars.size());
     }
 
+    /**
+     * Test iterator.
+     */
     @Test
     public void testIterator() {
         Iterator iter = cars.iterator();
@@ -70,6 +94,9 @@ public class LoopStreamTests {
         }
     }
 
+    /**
+     * Test basic stream functionality.
+     */
     @Test
     public void testBasicStreamFunctionality() {
         // forEach
@@ -82,6 +109,9 @@ public class LoopStreamTests {
         //
     }
 
+    /**
+     * Test sor cars by milage.
+     */
     @Test
     public void testSorCarsByMilage() {
         int size = cars.size();
@@ -100,6 +130,9 @@ public class LoopStreamTests {
         cars.stream().forEach(car -> printCar(car));
     }
 
+    /**
+     * Test sort with stream.
+     */
     @Test
     public void testSortWithStream() {
         cars.stream()
@@ -112,6 +145,9 @@ public class LoopStreamTests {
         System.err.println(systemUnderTest.getAvarageMilage(Arrays.asList(car)));
     }
 
+    /**
+     * Test sort with sream by car milage.
+     */
     @Test
     public void testSortWithSreamByCarMilage() {
         cars.sort(new Comparator<Car>() {

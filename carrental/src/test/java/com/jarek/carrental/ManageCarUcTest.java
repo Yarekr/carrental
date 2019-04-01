@@ -45,6 +45,9 @@ public class ManageCarUcTest {
     }
 
 
+    /**
+     * Test user unable to rent anything.
+     */
     @Test
     public void testUserUnableToRentAnything() {
         // given:
@@ -59,6 +62,9 @@ public class ManageCarUcTest {
 
     }
 
+    /**
+     * Test is able to rent car but car not exists.
+     */
     @Test
     public void testIsAbleToRentCarButCarNotExists() {
         // given:
@@ -72,6 +78,9 @@ public class ManageCarUcTest {
         Assert.assertNull(result.getValue());
     }
 
+    /**
+     * Test car exists but in wrong condition.
+     */
     @Test
     public void testCarExistsButInWrongCondition() {
         // given:
@@ -85,6 +94,9 @@ public class ManageCarUcTest {
         Assert.assertNull(result.getValue());
     }
 
+    /**
+     * Test car exists in good condition but already rented.
+     */
     @Test
     public void testCarExistsInGoodConditionButAlreadyRented() {
         // given:
@@ -98,6 +110,9 @@ public class ManageCarUcTest {
         Assert.assertNull(result.getValue());
     }
 
+    /**
+     * Test rent a car happy path.
+     */
     @Test
     public void testRentACarHappyPath() {
         // given:

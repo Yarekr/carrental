@@ -17,6 +17,9 @@ import org.springframework.util.CollectionUtils;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The type Spring boot tests.
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SpringBootTests {
@@ -27,11 +30,17 @@ public class SpringBootTests {
     @Autowired
     private UserRepository userRepository;
 
+    /**
+     * Context loads.
+     */
     @Test
     public void contextLoads() {
     }
 
 
+    /**
+     * Test car repository find all cars.
+     */
     @Test
     public void testCarRepository_findAllCars() {
         // given:
@@ -41,6 +50,9 @@ public class SpringBootTests {
         Assert.assertTrue(carExists(allCars, "Renault"));
     }
 
+    /**
+     * Test car repository find car by id.
+     */
     @Test
     public void testCarRepository_findCarById() {
         // given:
@@ -51,6 +63,9 @@ public class SpringBootTests {
         Assert.assertNotNull(renault);
     }
 
+    /**
+     * Test car repository create a car.
+     */
     @Test
     public void testCarRepository_createACar() {
         // given:
@@ -66,6 +81,9 @@ public class SpringBootTests {
         Assert.assertTrue(carExists(allCars, carName));
     }
 
+    /**
+     * Test user repository find all users.
+     */
     @Test
     public void testUserRepository_findAllUsers() {
         List<User> users = userRepository.findAllUsers();

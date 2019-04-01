@@ -8,9 +8,15 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+/**
+ * The type User tests.
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 public class UserTests {
 
+    /**
+     * Test if admin is in user factory.
+     */
     @Test
     public void testIfAdminIsInUserFactory() {
         //given:
@@ -25,6 +31,9 @@ public class UserTests {
 //		todo: test uprawnien -> sprawdzic czy admin ma uprawnienie "diagnose" i zadnych innych
     }
 
+    /**
+     * Test if not existing user is fine.
+     */
     @Test
     public void testIfNotExistingUserIsFine() {
         //given:
