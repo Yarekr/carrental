@@ -28,7 +28,6 @@ public class UserTests {
         Assert.assertNotNull(result);
         Assert.assertEquals(expectedUserName, result.getUsername());
 
-//		todo: test uprawnien -> sprawdzic czy admin ma uprawnienie "diagnose" i zadnych innych
     }
 
     /**
