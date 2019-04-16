@@ -43,5 +43,22 @@ public class UserTests {
         Assert.assertNull(result);
     }
 
+    /**
+     * Test if user is in user factory.
+     */
+    @Test
+    public void testIfUserIsInUserFactory() {
+        //given:
+        UserFactory userFacory = new UserFactory();
+        String expectedUserName = "TomaszŁ";
+        // when
+        User result = userFacory.getUserByType(UserType.CUSTOMER);
+        //then
+        Assert.assertNotNull(result);
+        Assert.assertEquals(expectedUserName, result.getUsername());
+
+    }
+
+
 }
 
