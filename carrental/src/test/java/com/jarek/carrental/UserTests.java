@@ -50,7 +50,7 @@ public class UserTests {
     public void testIfUserIsInUserFactory() {
         //given:
         UserFactory userFacory = new UserFactory();
-        String expectedUserName = "TomaszŁ";
+        String expectedUserName = "Tomasz";
         // when
         User result = userFacory.getUserByType(UserType.CUSTOMER);
         //then
