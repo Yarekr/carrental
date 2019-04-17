@@ -109,7 +109,18 @@ public class ManageCarUcTest {
         Assert.assertNotNull(result.getKey());
         Assert.assertNull(result.getValue());
     }
+    @Test
+    public void testCarExistInGoodCondition(){
 
+        List<Car> cars = CarDatabase.prepareCars();
+        User user = prepareUser(Arrays.asList(RentalPrivilege.BOOK_CAR));
+        String carName = "Mazda ";
+
+        Pair<User,Car> result = systemUnderTest.rentCarByUser(cars,user,carName);
+
+        Assert.assertNotNull(result.getKey());
+        Assert.assertNull(result.getValue());
+    }
     /**
      * Test rent a car happy path.
      */
